@@ -11,3 +11,16 @@ var index = 0 //variable
 
 var website = "finalobject.cn"
 var website:String = "finalobject.cn"//强类型语言，但是不强制要求申明
+
+Int,UInt //Unsigned Integer
+// 使用0b,0o,0x
+var decimalInt: Int = 17
+var binaryInt: Int  = 0b10001
+var octalInt: Int   = 0o21
+var hexInt:Int      = 0x11
+// 使用_标示数字位
+let x = 1_000_000
+
+Float,Double
+var a:Float =1.25e10
+var b:Float =1_000.000_000_1
