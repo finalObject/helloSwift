@@ -1,0 +1,13 @@
+/**
+ * @author finalObject
+ * 	   http://www.finalobject.cn
+ *	   i@finalobject.cn
+ *	   https://github.com/finalobject
+ * @date   Feb 23,2017 17:38:12
+ * @version 1.0
+ */
+let maxNum = 100 //constant
+var index = 0 //variable
+
+var website = "finalobject.cn"
+var website:String = "finalobject.cn"//强类型语言，但是不强制要求申明
