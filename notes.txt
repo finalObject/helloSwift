@@ -22,6 +22,14 @@ var hexInt:Int      = 0x11
 // 使用_标示数字位,数字位间隔任意
 let x = 1_000_000
 
-Float,Double
+Float,Double,CGFloat
 var a:Float =1.25e10
 var b:Float =1_000.000_000_1
+
+//不同类型之间运算不存在隐式自动的类型转换
+//必须强制显式的类型转换
+Float(amInt)
+
+//UIColor
+UIColor(red:1,green:1,blue:0,alpha:0.5)//其中的数字即必须是CGFloat类型
+
