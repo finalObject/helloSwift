@@ -6,19 +6,20 @@
  * @date   Feb 23,2017 17:38:12
  * @version 1.0
  */
+
 let maxNum = 100 //constant
 var index = 0 //variable
 
 var website = "finalobject.cn"
 var website:String = "finalobject.cn"//强类型语言，但是不强制要求申明
 
-Int,UInt //Unsigned Integer
+Int,UInt,UInt8,,,//Unsigned Integer
 // 使用0b,0o,0x
 var decimalInt: Int = 17
 var binaryInt: Int  = 0b10001
 var octalInt: Int   = 0o21
 var hexInt:Int      = 0x11
-// 使用_标示数字位
+// 使用_标示数字位,数字位间隔任意
 let x = 1_000_000
 
 Float,Double
