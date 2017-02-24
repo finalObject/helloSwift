@@ -99,6 +99,10 @@ repeat{
 //break&continue也一样
 
 //switch 中不用加break了
+//case 后面可以加入数组，区间
+//多种情况的时候不要加小括号，小括号是cell！
+//有好多有意思的写法，可以去看看老师的文档
+//fallthrough 主动进入下一个case
 switch value{
 case "A","a":
      statement;
@@ -107,4 +111,23 @@ case "B","b":
 defalut:
      ()//表示什么都不做，和;类似
      statement;
+}
+
+//给外层循环命名，在内循环中直接跳出外层循环
+//有争议的一个特性
+outerWhile:for m in 1...300{
+    for n in 1...300{
+        if condition{break outerWhile}
+    }
+}
+
+//如果age在[1,9]范围内,并且age大于等于2
+//where挺有意思的
+if case 1...9 = age where age>=2{
+	statement
+}
+
+//function
+func getAns(number1:Int,number2:Int){
+	return number1+number2
 }
