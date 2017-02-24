@@ -33,3 +33,45 @@ Float(amInt)
 //UIColor
 UIColor(red:1,green:1,blue:0,alpha:0.5)//其中的数字即必须是CGFloat类型
 
+var isTrue:Bool = true
+var isFalse:Bool = falese
+
+//condition 不一定需要用小括号包裹
+//大括号不可省略
+if condition{
+   statement;
+}else{
+   statement;
+}
+
+//Arrays
+var arr:Int[]=[1,2,3]
+arr[0]=2
+
+//Cells
+var a = 2
+var b = "Hello"
+var c = true
+var arr1=(a,b,c)
+var arr2:(Int,String,Bool)=(a,b,c)
+
+var (a1,a2,_)=arr2//取出的是值而不是指针,_忽略值
+arr2.0//.运算符可以取出对应位置的指针
+
+var arr3=(x:2,y:3)//直接指定元素的名字
+var arr3:(x:Int,y:Int)=(2,3)
+arr3.x
+
+//变量名字可以是Unicode
+
+printf(x,y,z,separator:",",terminator:"\n")//默认是空格和会车
+printf("\(x)+\(y)=\(result)")//反斜杠括号表示引用
+
+//赋值运算符，会返回值，和C一样
+var a=2
+//数学运算符
+//(+a)(-a)也是运算符，interesting!
+//比较预算符，不等于也是!=
+//比较引用内容，===,!==
+//逻辑运算符，!,&&,||,会短路
+
