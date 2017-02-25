@@ -133,10 +133,36 @@ func getAns(number1:Int,number2:Int){
 }
 
 var str="Hello"
-for c in str.characters{
+for c in str.characters{//characters返回的不是字符数组
 	print(c)
 	//c就是好久不见的Character
 }
 var char:Character="!"
 str.append(char)//字符串和字符连接
 //Unicode编码
+var coolGuy:Character="\u{1F60E}"
+
+//String的索引需要使用另一种数据类型Index，而不是Int
+let index = str.startIndex
+let char1 = str[index]
+let char2 = str[index.advancedBy(5)]//第一个往后移6
+index.predecessor()//前一个Index
+index.successor()//后一个Index
+str.endIndex//是最后一个字符后面一个位置，可以理解成字符串长度
+str[str.startIndex..<str.endIndex]//这样获取整个字符串，自行感受
+let range = index1..<index2
+str.replaceRange(range,with:"ANOTHER")//指定range内的内容替换成ANNOTHER
+str.appendContentsOf(anotherStr)
+str.insert("?",atIndex:str.endIndex)//endIndex是最后一个的后一位置，吧?填上去
+str.removeAtIndex(idnex)
+str.removeRange()
+str.containsString()
+str.hasPrefix(str2)//看str是否以str2开头
+str.hasSuffix(str2)//结尾
+//NNString,相关函数使用的index用的都是Int，比较习惯
+var str = NSString(format:"%2.5f\n",1.0/3.0)
+var str2:String = str as String
+
+let s4 = "   --a--   " as NSString
+s4.stringByTrimmingCharactersInSet(NSCharacterSet(chararcterInString:" -"))
+//这个可以取出字符串中的空格和横线，String里面没有这种方法
