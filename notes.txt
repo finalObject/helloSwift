@@ -138,3 +138,4 @@ for c in str.characters{
 	//c就是好久不见的Character
 }
 var char:Character="!"
+str.append(char)//字符串和字符连接
