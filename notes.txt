@@ -139,3 +139,4 @@ for c in str.characters{
 }
 var char:Character="!"
 str.append(char)//字符串和字符连接
+//Unicode编码
