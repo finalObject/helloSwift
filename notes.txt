@@ -108,7 +108,7 @@ case "A","a":
      statement;
 case "B","b":
      statement;
-defalut:
+default:
      ()//表示什么都不做，和;类似
      statement;
 }
@@ -131,3 +131,10 @@ if case 1...9 = age where age>=2{
 func getAns(number1:Int,number2:Int){
 	return number1+number2
 }
+
+var str="Hello"
+for c in str.characters{
+	print(c)
+	//c就是好久不见的Character
+}
+var char:Character="!"
