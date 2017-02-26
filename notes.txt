@@ -170,3 +170,5 @@ s4.stringByTrimmingCharactersInSet(NSCharacterSet(chararcterInString:" -"))
 nil//没有就是没有哈哈
 var errorCode:Int?=404//加问好之后变成可选型，可以变成nil
 errorCode=nil
+//nil不能单独呈现，必须和其他类型形成可选型
+
