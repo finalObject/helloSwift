@@ -166,3 +166,7 @@ var str2:String = str as String
 let s4 = "   --a--   " as NSString
 s4.stringByTrimmingCharactersInSet(NSCharacterSet(chararcterInString:" -"))
 //这个可以取出字符串中的空格和横线，String里面没有这种方法
+
+nil//没有就是没有哈哈
+var errorCode:Int?=404//加问好之后变成可选型，可以变成nil
+errorCode=nil
