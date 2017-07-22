@@ -34,7 +34,7 @@ Float(amInt)
 UIColor(red:1,green:1,blue:0,alpha:0.5)//其中的数字即必须是CGFloat类型
 
 var isTrue:Bool = true
-var isFalse:Bool = falese
+var isFalse:Bool = false
 
 //condition 不一定需要用小括号包裹
 //大括号不可省略
