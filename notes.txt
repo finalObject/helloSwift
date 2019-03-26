@@ -180,3 +180,6 @@ if let a=errorCode{
 }
 errorCode?.uppercaseString//尝试当成String用，失败就什么都不敢
 a=erroCode??"NoError"//尝试赋值，是nil的话就赋值成NoError
+
+
+//2019.3.29

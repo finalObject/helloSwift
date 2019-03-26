@@ -5,3 +5,4 @@ import XCPlayground
 
 var a:String? = nil
 var b = a ?? "no error"
+let ba = false
