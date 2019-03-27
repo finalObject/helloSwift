@@ -265,6 +265,7 @@ enum Season{
   case Spring, Summer, Autumn, Winter
 }
 //枚举和其他类型建立关系
+//如果不赋值，默认从0开始递增
 enum Season:Int{
   case Spring = 1
   case Summer = 2
@@ -273,6 +274,14 @@ enum Season:Int{
 }
 let curMonth = Month.March
 let curMonth:Month = .March
+let curSeason = Season(rawVaule : 2)
+
+enum ATMStatus{
+  case Success(Int)
+  case Error(String)
+}
+
+//递归定义的枚举，“算数表达式”是一个例子
 
 
 
