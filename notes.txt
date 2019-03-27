@@ -48,6 +48,7 @@ if condition{
 var arr:Int[]=[1,2,3]
 arr[0]=2
 
+
 //Cells
 var a = 2
 var b = "Hello"
@@ -183,3 +184,97 @@ a=erroCode??"NoError"//尝试赋值，是nil的话就赋值成NoError
 
 
 //2019.3.29
+var a1:[Int]=[]
+var a2 = [Int]()
+
+//Dictionary
+var dict:[String:String]= ["hello":"nihao","bye":"再见"]
+var dict:Dictionary<String,String> = [:]
+
+dict["hello"] = "你好"
+dict.updateValue("nihao",forKey:"hello")
+
+//set
+var skills:Set<String> = ["swift","OC"] 
+var set1:Set<Int> = []
+var set2 = Set<Double>()
+
+var set3 = Set(["1","2"])
+
+//function
+//to代表外部调用的时候使用的名字，name是内部使用的名字，这样很棒！
+//如果不给参数，默认huxiaobo
+func sayHello(to name:String = "huxiaobo") -> String{
+  return "hello \(name)"
+}
+//这样调用，第二个外部名也不用加
+func add(num1 : Int , _ num2 : Int){
+  
+}
+sayHello(to:"Rin")
+
+func sayHello() -> Void{
+  
+}
+//变长度的参数，这个参数就当作数组处理
+func mean(numbers : Double ...) -> Double{
+  var sum:Double = 0
+  for number in numbers{
+    sum += number
+  }
+  return sum/Double(numbers.count)
+}
+//改变传入值，数组传入，也需要这样的操作，都是按值传入的
+func swap(inout a: Int,inout _ b: Int){
+  (a,b)=(b,a)
+}
+var a:Int = 1
+var b:Int = 2
+swap(&a,&b)
+
+//函数赋值，太强了
+func add (a:Int,_ b:Int)->Int{
+  return a+b
+}
+let anotherAdd : (Int,Int)->Int = add
+anotherAdd(3,4)
+
+//系统提供的一些高阶函数
+map(Int->Int)
+filter(Int -> Bool)
+reduce 
+
+//闭包 
+{
+  (a:Int,b:Int)->Bool in
+    return a>b
+}
+//如果函数已经声明过了，可以直接这么写
+{ a,b in return a>b}
+//如果名字都不想取，直接这么写
+{ $0 > $1 }
+
+//枚举
+enum Month{
+  case January
+  case February
+  case March
+  ...
+}
+enum Season{
+  case Spring, Summer, Autumn, Winter
+}
+//枚举和其他类型建立关系
+enum Season:Int{
+  case Spring = 1
+  case Summer = 2
+  case Autumn = 3
+  case Winter = 4
+}
+let curMonth = Month.March
+let curMonth:Month = .March
+
+
+
+
+
