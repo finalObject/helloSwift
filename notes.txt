@@ -283,7 +283,49 @@ enum ATMStatus{
 
 //递归定义的枚举，“算数表达式”是一个例子
 
+//结构体
+//结构体、枚举是值类型，类、函数、闭包是引用类型（）
+struct Location{
+  let latitude:Double
+  let longitude:Double 
+  //可以加入构造函数
+  init(name:String){
+    //构造函数的逻辑
+  }
+  //和普通的函数写法一下
+  func printLoc(){
 
+  }
+}
+
+//同if
+guard x==2 else{
+  
+}
+//多个guard
+guard
+  let a == 2,
+  let b == 3,
+  let c == 4
+else{
+
+}
+
+//类
+class Person{
+  var name:String = "Hu"
+
+  init?(name:String){
+    guard 
+      //在这个函数里这么判断没有意义，但是就是这么一个意思 
+      let spaceIndex = name.rangeOfString(" ")?.startIndex
+    else{
+      return nil
+    }
+    self.name = name
+  }
+
+}
 
 
 
