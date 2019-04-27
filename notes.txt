@@ -73,7 +73,7 @@ var a=2
 //数学运算符
 //(+a)(-a)也是运算符，interesting!
 //比较预算符，不等于也是!=
-//比较引用内容，===,!==
+//比较引用内容（是否指向同一个引用），===,!==
 //逻辑运算符，!,&&,||,会短路
 
 //和其他语言一样
@@ -326,6 +326,124 @@ class Person{
   }
 
 }
+var person = Person(name:"Hu")
+
+//计算型属性/存储型属性！这个非常有用啊
+//不储存值，只会记录和别的参数的关系，每次调用就会自动计算
+//计算型属性和方法 有点类似
+
+//如果你故意要设置，还能反向调用
+var a = 0
+var b = 0
+var c:Int{
+  get{
+    let x = a+b
+    return x 
+  }
+  set(newX){
+  //也可以不写这个newX，默认的变量名是newValue
+    a = newX - b
+  }
+}
+
+//类型属性
+//就是static属性
+//类里面共享
+class Player{
+  var name:String
+  static var highestScore:Int=0
+  init(name:String){
+    self.name = name
+  }
+}
+Player.highestScore=2
+
+//还有类型方法
+//也就是加一个static属性
+
+//属性观察器，可以对属性的赋值进行限制
+//不会在初始化阶段被调用
+//只有初始化完之后才会启用属性观察器
+//一般就用来对赋值进行限制
+//有点类似计算型属性的味道
+class LightBulb{
+  static let maxCurrent = 30
+  var current=0{
+    //赋值之前进行的操作，感觉就是封装了set和get方法
+    willSet(newValue){
+
+    }
+    //在current被赋值之后，会进行的函数
+    //可以在括号里写名字，表示被赋值之前的那个值
+    //不加的话默认名字是oldValue
+    didSet(oldCurrent){
+      if current >= LightBulb.maxCurrent{
+        print("电流过大")
+        current = oldCurrent
+      }
+    }
+  }
+}
+let bulb = LightBulb()
+bulu.current=20
+
+//Lazy Property
+//懒加载？
+//适用于调用的时候才计算（可能和计算型属性一样），但是计算之后还能储存，下一次调用就不计算了
+//可能一开始不会调用，但是调用了之后就要被记住
+class CloseRange{
+  let start:Int
+  let end:Int
+  //后面这个大括号，实际上就一个闭包函数
+  lazy var sum:Int={
+    var res=0
+    for i in self.start...self.end{
+      res+=i
+    }
+  }()
+  init?(start:Int,end:Int){
+    if start>end{
+      return nil
+    }
+    self.start = start
+    self.end = end
+  }
+}
+
+//访问控制，默认都是internal
+//public  可以被模块外访问
+//internal 可以被本模块访问，模块类似于java里面的package
+//private 可以被本文件访问，只要你在这个文件里调用，就可以了，调试可以用
+
+//单例设计模式
+//太牛逼了吧
+public class GameManager{
+  public var score = 0
+  public static let defaultGameManager = GameManager()
+  private init(){
+
+  }
+  public func addScore(){
+    score += 10
+  }
+}
+//外面就不能进行这个GameManager的初始化，只能调用那个静态变量
+let gameManager = GameManager.defaultGameManager
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
