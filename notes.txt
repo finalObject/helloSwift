@@ -430,6 +430,18 @@ public class GameManager{
 //外面就不能进行这个GameManager的初始化，只能调用那个静态变量
 let gameManager = GameManager.defaultGameManager
 
+//继承,final也是结束继承
+class A{
+    var a
+    statement
+}
+class B:A{
+    override var a
+    statement
+}
+//子类重写init，不需要加override
+//需要先初始化自己的新东西，
+//然后利用super.init()函数初始化所有父类中已经包含的东西
 
 
 
