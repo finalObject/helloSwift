@@ -439,12 +439,34 @@ class B:A{
     override var a
     statement
 }
-//子类重写init，不需要加override
+//子类重写init，不需要加override（输入参数和父类init不一样，一样的话就要加override）
+//如果重载了两个构造函数，这个函数需要调用那个构造函数，就需要在这个函数前加convenience
 //需要先初始化自己的新东西，
 //然后利用super.init()函数初始化所有父类中已经包含的东西
 
+//必须被子类实现（重载）的函数，加关键字required，就不用加override了
 
 
+ 
+
+//文档写法
+// "/*"的话就是普通的多行注释，变成“/**”了就是文档注释了，会显示在description中
+//支持markdown语法
+//```还能用来加代码
+
+/**
+xixixixix
+```
+code
+```
+*/
+
+///文档注释，同上面的多行注视
+
+func showSomething()->String{
+    
+    return "hey"
+}
 
 
 
