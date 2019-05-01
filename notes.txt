@@ -87,6 +87,11 @@ question?answer1:answer2
 for index in 1...10{
     print(index)
 }
+//如果step不是1
+//就是for(int i=2;i<num;i=i+2)
+for index in 2.stride(to:num,by:2){
+    
+}
 
 //for循环被移除了
 //while循环
@@ -242,7 +247,8 @@ anotherAdd(3,4)
 //系统提供的一些高阶函数
 map(Int->Int)
 filter(Int -> Bool)
-reduce 
+reduce(0,+)
+//+就是一个函数 
 
 //闭包 
 {
@@ -451,8 +457,14 @@ class B:A{
 
 //文档写法
 // "/*"的话就是普通的多行注释，变成“/**”了就是文档注释了，会显示在description中
+// 加Parameter，显示在parameter中
+// 加Returns，显示在Returns中
+// 加Throws,显示在Throws中
+// 还有各种关键词，可以用来描述算法之类的，Precondition，Requires，Warning等等
+// 版权信息：Author、Authors、Copyrighit、Date、Since、Version  
 //支持markdown语法
 //```还能用来加代码
+// 
 
 /**
 xixixixix
@@ -462,15 +474,92 @@ code
 */
 
 ///文档注释，同上面的多行注视
+/// - Parameters: name: explain it
+/// - Returns: xixixixi
+/// - Throws: ssadsd
 
-func showSomething()->String{
+func showSomething(name:String)->String{
     
     return "hey"
 }
+ // MARK: - (显示在类视图中，也可以加字)
+
+ // TODO: Offer a all parameters initializer
+
+ // FIXME: I will fix the bug
 
 
+//下标定义
+struct Vector3{
+    var x:Double = 0
+    var y:Double = 0
+    var z:Double = 0
+    subscript(index:Int) -> Double?{
+        get{
+
+        }
+        set{
+
+        }
+    }
+    //多重下标
+    subscript(x:Int,y:Int) -> Double?{
+
+    }
+}
+var v = Vector3();
+v[0]
+v[0,1]
+
+//数组类型
+var data:[Double]
+var data2:[[Double]]//二维数组
+
+//断言,为真不做任何处理，为假报错停止
+//这个东西是用来保证绝对不会出现的问题的，出现了就报错
+assert(x > 2)
+assert(x > 2, "x太大啦，程序做不下去了")
 
 
+//运算符的定义！
+//这个是双目运算符
+func + (left:Vector3,right:Vector3) -> Vector3{
+    
+}
+//单目的话，需要标注这个符号是在左边还是右边
+//prefix 前缀
+//postfix 后缀
+prefix func - (vector:Vector3)->Vector3{
+    return Vector3(x:-vertor.x,y:-vector.y,z:-vector.z)
+}
+//
+//运算符可以用Unicode！🌥
+//自定义运算符
+postfix operator +++{}//自定义运算符需要加这么一个声明操作
+postfix func +++(inout vector:Vector3)->Vector3{
+    ...
+}
+//自定义双目
+
+//结合性 , 优先级（0-255），加法是140，乘法150
+//默认非结合，
+infix operator ^{associativity left precedence 140}
+
+
+infix operator ^{}
+func ^(left:Vector3,right:Vector3)->{
+    ...
+}
+
+//扩展
+//有点像继承
+//但是只能扩展函数和计算型属性
+extension Vector3{
+    
+}
+
+//支持 嵌套定义
+ 
 
 
 
