@@ -303,6 +303,7 @@ struct Location{
 
   }
 }
+mutating//修饰会改变struct本身的那些函数
 
 //同if
 guard x==2 else{
@@ -560,10 +561,27 @@ extension Vector3{
 
 //支持 嵌套定义
  
+//范型
+func swapTwoValue<T>(inout a:T,intout b:T){
 
+  (a,b)=(b,a)
+}
+struct Test<T1,T2>{
+  var a:T1
+  var b:T2
+}
 
+Protocol 协议 //类似接口
 
-
+protocal Pet{
+  var name:String{get set}
+  var birthPlace:String{get}
+  func playWith()
+  func feed(food:String)->bool
+}
+struct Dog:Pet{
+  //实现所有方案和属性
+}
 
 
 
