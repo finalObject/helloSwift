@@ -446,7 +446,7 @@ class B:A{
     override var a
     statement
 }
-//子类重写init，不需要加override（输入参数和父类init不一样，一样的话就要加override）
+//子类重写init，不需要加override?（输入参数和父类init不一样，一样的话就要加override）
 //如果重载了两个构造函数，这个函数需要调用那个构造函数，就需要在这个函数前加convenience
 //需要先初始化自己的新东西，
 //然后利用super.init()函数初始化所有父类中已经包含的东西
@@ -571,8 +571,10 @@ struct Test<T1,T2>{
   var b:T2
 }
 
-Protocol 协议 //类似接口
-
+Protocol 协议 //类似接口,表示某种属性
+//协议可以继承
+//可以同时被类和结构体遵守，可以后面加名字来指定只能呗谁遵守
+protocal Pet:class{}
 protocal Pet{
   var name:String{get set}
   var birthPlace:String{get}
@@ -583,6 +585,36 @@ struct Dog:Pet{
   //实现所有方案和属性
 }
 
+//继承的时候，需要先写继承，在写协议
+class Dog:Animal,Pet{}
+
+//别名
+typealias Length = Double
+//协议中用associatetype ，感觉就像是给类型取名字
+
+//常用协议
+Equatable
+Comparable
+CustomStringConvertible 
+BooleanType
+
+extension Record where Self:Tiable
+//扩展遵守了Tiable协议的Record协议
+
+//协议聚合,代表同时遵守这两个协议
+protocal<protocal1,protocal2>
+//这个award函数，输入的one需要实现这两个协议
+func award(one:protocal<protocal1,protocal2>){
+  
+}
+
+//然后如果用协议来表示对应的类型了，就需要用范型来实现
+func topOne<T:Comparable>(seq:[T])->T{
+  
+}
+
+//利用协议完成委托机制
+//这样的话，就可以实现各种函数的自定义，而不是对已经设定好的东西进行参数的自定义
 
 
 
