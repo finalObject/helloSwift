@@ -519,7 +519,7 @@ var data2:[[Double]]//二维数组
 //断言,为真不做任何处理，为假报错停止
 //这个东西是用来保证绝对不会出现的问题的，出现了就报错
 assert(x > 2)
-assert(x > 2, "x太大啦，程序做不下去了")
+assert(x > 2, "x太小啦，程序做不下去了")
 
 
 //运算符的定义！
@@ -574,12 +574,16 @@ struct Test<T1,T2>{
 Protocol 协议 //类似接口,表示某种属性
 //协议可以继承
 //可以同时被类和结构体遵守，可以后面加名字来指定只能呗谁遵守
+//@objc的协议，遵守的必须是一个类，并且继承与NSObject
+//函数如果是optional的，在调用的时候就需要进行解包
+//if let something = thisPet.something{}else{}
 protocal Pet:class{}
-protocal Pet{
+@objc(加了optional就要加这个) protocal Pet{
   var name:String{get set}
   var birthPlace:String{get}
   func playWith()
   func feed(food:String)->bool
+  optional func something()//可以不实现
 }
 struct Dog:Pet{
   //实现所有方案和属性
@@ -615,6 +619,67 @@ func topOne<T:Comparable>(seq:[T])->T{
 
 //利用协议完成委托机制
 //这样的话，就可以实现各种函数的自定义，而不是对已经设定好的东西进行参数的自定义
+
+
+//错误处理，程序中断
+//执行到这里直接退出
+assertionFailure("Error")
+
+//和assert相同，不过assert只能用在调试中，precondition在实际使用中也会发生
+precondition
+
+//类似的，fatalError和assertionFailure相同
+
+//可选性也算是一种错误处理
+
+//抛出异常
+enum Error:ErrorType{
+    case Error1
+    case Error2
+    case Error3
+}
+//可能会抛出异常的话，需要在函数外面声明throws
+func something() throws -> Int{}
+//在必要的地方执行throw Error.Error1
+
+//处理异常
+//会抛出异常，必须try处理
+try! something()//强制执行
+try? something()//尝试执行，失败返回nil
+
+//别人的try catch，在这里变成了do catch
+do{
+    something()
+}
+catch{}//这个会捕获所有异常
+
+do{something()}
+catch Error.Error1{
+    
+}//这个只捕获Error1异常 
+catch Error.Error2{
+    
+}//可以叠加，然后异常如果没有被捕获，只是什么都不做，不会退出
+
+//或者先捕获住这个错误，然后再处理
+do{something()}
+catch let error as Error{
+    //
+}
+
+//defer关键字，这个是这个函数执行完之后再执行（不管是否抛出异常）
+//defer是倒叙执行的
+//类似trycatch中的finally
+func something() throws{
+    defer{
+
+    }
+    defer{
+    }
+    ...
+}
+
+
 
 
 
