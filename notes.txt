@@ -679,9 +679,23 @@ func something() throws{
     ...
 }
 
+//析构函数 
+deinit
 
+//弱引用，引用计数不增加
+//weak的类型应该必须是可选型
+//必须是var
+weak var pet : T?
+//没有限定条件，使用unowned关键字，就是有危险
 
-
+//检查类的类型
+if pet is Pet{
+    
+}
+//强制类型转换
+//尝试把pet这个变量转换成Cat类型，如果需要赋值，返回一个可选型
+var myCat = pet as? Cat
+//也可以用于协议的遵守情况
 
 
 
