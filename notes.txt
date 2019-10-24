@@ -7,6 +7,19 @@
  * @version 1.0
  */
 
+//强类型，编译型语言
+//跳转 函数外部内部名字
+//跳转 运算符重载
+//跳转 forin
+//跳转 nil
+//跳转 inout
+//跳转 计算型属性
+//跳转 属性观察器
+//跳转 懒加载
+//跳转 下标定义
+//跳转 扩展
+//跳转 协议
+
 let maxNum = 100 //constant
 var index = 0 //variable
 
@@ -84,6 +97,7 @@ question?answer1:answer2
 //开区间运算符,前闭后开 a..<b
 //返回的是一个数组吧
 //index不需要申明，是常量
+//forin
 for index in 1...10{
     print(index)
 }
@@ -207,6 +221,7 @@ var set2 = Set<Double>()
 var set3 = Set(["1","2"])
 
 //function
+//函数外部内部名字
 //to代表外部调用的时候使用的名字，name是内部使用的名字，这样很棒！
 //如果不给参数，默认huxiaobo
 func sayHello(to name:String = "huxiaobo") -> String{
@@ -523,6 +538,7 @@ assert(x > 2, "x太小啦，程序做不下去了")
 
 
 //运算符的定义！
+//运算符重载
 //这个是双目运算符
 func + (left:Vector3,right:Vector3) -> Vector3{
     
